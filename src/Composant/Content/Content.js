@@ -1,14 +1,22 @@
 import React from 'react';
 
 
-function Content(){
+function Content(props){
     
+    function createCard(e){
+        e.preventDefault();
+        const nvTab = [...props.monState, {tache : props.tache, text: props.text}];
+        props.setMonState(nvTab);
+        console.log(nvTab);
+        
+    }
+
+
     return (
         <div className='container px-3'>
             <h2 className='title mt-5'>Entrez vos tâches</h2>
             
-
-            <form action="">
+            <form onSubmit={createCard}>
 
                 <div className="field">
 
@@ -20,6 +28,7 @@ function Content(){
                         id='tache' 
                         placeholder='un titre' 
                         className='input'
+                        onChange={e => props.setTache(e.target.value)}
                         />
                     </div>
                 </div>
@@ -34,6 +43,7 @@ function Content(){
                         id='text' 
                         placeholder='Un contenu' 
                         className='textarea'
+                        onChange={e => props.setText(e.target.value)}
                         >
                         </textarea>
                     </div>

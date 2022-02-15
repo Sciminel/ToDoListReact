@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function Card() {
+export default function Card({tache, text}) {
   return (
     <div className=' has-background-primary container my-4'>
         <div className="card-content ">
             <div className="content">
-                <h3 className="px-4"></h3>
+                <h3 className="px-4">{tache}</h3>
                 <p className="is-size-4 px-4">
-                    
+                    {text}
                 </p>
                 <button className="delete is-large btn-top">X</button>
             </div>
