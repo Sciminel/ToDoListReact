@@ -12,8 +12,18 @@ function App() {
     {tache : "Promener le chien", text : "Sortir à 6h, 13h et 21h"}
   ]);
 
+  // Nouveau State qui vont faire références aux cartes
   const [tache, setTache] = useState();
   const [text, setText] = useState();
+
+  function deleteCard(index){
+    console.log("CLick");
+    const tabClean = [...monState];
+  
+    // Suppression d'une cartePermet de filtrer le tableau et de retourner un nouveau tableau sans la carte ou on a cliqué
+    setMonState(tabClean.filter(item => tabClean.indexOf(item) !== tabClean.indexOf(tabClean[index])));
+    console.log(setMonState);
+  }
 
 
   return (
@@ -33,9 +43,10 @@ function App() {
           
           <Card
           key = {index}
+          index = {index}
           tache = {todo.tache}
           text = {todo.text}
-          
+          deleteC = {deleteCard}
           />
 
         ))

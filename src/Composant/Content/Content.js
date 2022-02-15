@@ -5,9 +5,12 @@ function Content(props){
     
     function createCard(e){
         e.preventDefault();
+        //Permet de créer un nouveau tableau a chaque ajout d'une carte et remet le input vide
         const nvTab = [...props.monState, {tache : props.tache, text: props.text}];
         props.setMonState(nvTab);
         console.log(nvTab);
+        setTache('');
+        setText('');
         
     }
 
@@ -28,6 +31,7 @@ function Content(props){
                         id='tache' 
                         placeholder='un titre' 
                         className='input'
+                        value={props.tache}
                         onChange={e => props.setTache(e.target.value)}
                         />
                     </div>
@@ -43,6 +47,7 @@ function Content(props){
                         id='text' 
                         placeholder='Un contenu' 
                         className='textarea'
+                        value={props.text}
                         onChange={e => props.setText(e.target.value)}
                         >
                         </textarea>
